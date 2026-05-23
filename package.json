@@ -1,0 +1,17 @@
+{
+  "name": "buffalolaserclass.org",
+  "version": "1.0.0",
+  "description": "Official website for the Buffalo Laser Class Association",
+  "scripts": {
+    "start": "eleventy --serve",
+    "serve": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "luxon": "^3.7.2"
+  }
+}

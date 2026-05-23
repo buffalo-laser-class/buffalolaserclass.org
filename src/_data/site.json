@@ -1,0 +1,19 @@
+{
+  "name": "Buffalo Laser Class Association",
+  "shortName": "BLCA",
+  "tagline": "One-design Laser racing and community for Buffalo sailors",
+  "url": "https://buffalolaserclass.org",
+
+  "_comment_email": "This single address is the club's public contact email, shown in the footer and on the About page. Change it to your real club email.",
+  "contactEmail": "TODO-club-email@example.com",
+
+  "_comment_results": "PASTE THE PUBLISHED-TO-WEB CSV URL OF THE RESULTS GOOGLE SHEET HERE. We will create this sheet together in a later step. Until it is filled in, the Results page will show a friendly 'results coming soon' message instead of an error.",
+  "resultsCsvUrl": "",
+
+  "_comment_social": "Optional social links shown in the footer. Leave a value empty (\"\") to hide that link. We are NOT adding any social accounts in Phase 1 — these are here so a future board member can switch one on by pasting a URL.",
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "youtube": ""
+  }
+}

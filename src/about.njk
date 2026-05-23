@@ -1,0 +1,161 @@
+---
+layout: layout.njk
+title: About
+description: About the Buffalo Laser Class Association — our mission, what we do, and how to join.
+---
+
+<section class="page-head">
+  <div class="container container--narrow">
+    <h1>About Us</h1>
+    <p class="page-head__lead">
+      The purpose of the Buffalo Laser Class Association (BLCA) is to organize, promote,
+      and support Corinthian Laser/ILCA sailboat racing in Buffalo, N.Y., and to encourage
+      adherence to the highest standards of sportsmanship and conduct in the pursuit of
+      these activities.
+    </p>
+  </div>
+</section>
+
+<div class="container container--narrow about">
+
+  {# ---------------- HISTORY ---------------- #}
+  <section class="section" id="history">
+    <h2>Our history</h2>
+    <p>
+      Competitive ILCA/Laser racing in Buffalo was fostered by the Tanski Family and the
+      Buffalo Small Boat Sailing League. The Buffalo Laser Class supports and enhances the
+      Buffalo Small Boat Sailing League and focuses effort on the development of the Laser
+      Class.
+    </p>
+    <p class="todo-note">
+      TODO (optional): Add a founding year or a sentence or two more of club history here
+      if you&rsquo;d like. This section reads fine as-is if you prefer to leave it short.
+    </p>
+  </section>
+
+  {# ---------------- WHAT IS LASER/ILCA RACING ---------------- #}
+  <section class="section" id="what-is-laser-racing">
+    <h2>What is ILCA/Laser racing?</h2>
+    <p>
+      The ILCA &mdash; long known as the Laser &mdash; is a one-design, single-handed
+      sailing dinghy and one of the most popular racing boats in the world, sailed at every
+      level from local club nights up to the Olympic Games. &ldquo;One-design&rdquo; means
+      every boat is built to the same specification, so races are won by sailing skill and
+      tactics rather than by who has the fastest equipment.
+    </p>
+    <p class="todo-note">
+      TODO (review): The paragraph above is a general description of the class. Please read
+      it over and tweak anything you&rsquo;d like to phrase differently for your membership.
+    </p>
+  </section>
+
+  {# ---------------- GOALS & MISSION ---------------- #}
+  <section class="section" id="goals-mission">
+    <h2>Goals &amp; mission</h2>
+    <ol class="goals">
+      <li>Promote life-long enjoyment of Corinthian ILCA/Laser racing.</li>
+      <li>Advance the mean skill level and performance of the fleet.</li>
+      <li>Recruit more sailors.</li>
+      <li>Have even more fun.</li>
+    </ol>
+    <h3>Our mission</h3>
+    <p>
+      Our mission is to elevate ILCA/Laser racing in Buffalo and Western New York by
+      organizing racing events, providing training opportunities, and ensuring access to
+      the sport for all levels of sailors.
+    </p>
+  </section>
+
+  {# ---------------- WHAT WE DO ---------------- #}
+  <section class="section" id="what-we-do">
+    <h2>What we do</h2>
+
+    <h3>Monday Night Series</h3>
+    <p>
+      Our primary event is the Monday Night Series. Early and late in the season we organize
+      a Race Committee, but during the heart of the season our racing happens in partnership
+      with the Buffalo Small Boat Sailing League. Immediately following racing, sailors enjoy
+      a social hour and BBQ weekly at Dale&rsquo;s Marina, provided by the Tanski Family.
+    </p>
+
+    <h3>Training &amp; development</h3>
+    <p>
+      We believe in the growth of every sailor. We offer training programs and clinics led by
+      experienced members of the fleet and occasionally outside experts, with an emphasis on
+      both on- and off-the-water training. The fleet facilitates a post-race recap at the
+      Monday Night BBQ, and we encourage dialogue and insight sharing.
+    </p>
+
+    <h3>Camaraderie</h3>
+    <p>
+      Our fleet&rsquo;s success and cohesion are greatly supported by our off-the-water
+      culture-building activities. From our weekly BBQ and race recap to other social events
+      and parties, we emphasize that this should be social and fun. To build and sustain our
+      fleet, we work to create a positive, inclusive, and friendly environment.
+    </p>
+
+    <h3>Access</h3>
+    <p>
+      Our fleet is welcoming &mdash; we want new sailors. We have boats to borrow, and we are
+      here to support. We&rsquo;re happy to answer newcomers&rsquo; questions and stand ready
+      to assist with a loaner boat or to help a new member select their first ILCA/Laser.
+    </p>
+  </section>
+
+  {# ---------------- THE BOARD ---------------- #}
+  <section class="section" id="board">
+    <h2>The board</h2>
+    <p>
+      The BLCA is run by a volunteer board. To update this roster, a board member edits a
+      single file (<code>src/_data/board.json</code>) &mdash; see the Board Guide.
+    </p>
+    <table class="board-table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for member in board.members %}
+        <tr>
+          <td>{{ member.name }}</td>
+          <td>{{ member.role }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  {# ---------------- HOW TO JOIN ---------------- #}
+  <section class="section" id="join">
+    <h2>How to join</h2>
+    <p>
+      Whether you&rsquo;re a long-time ILCA/Laser racer or looking for a fun way to be outside
+      and on the water in the summertime, the Buffalo Laser Class Association offers an
+      environment for racers at all skill levels to thrive. Join us to be part of exciting
+      races, learn from the best, and contribute to a thriving sailing community. Sail fast!
+    </p>
+    <p>
+      Questions? Reach out to us at
+      <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>.
+    </p>
+    <p class="todo-note">
+      TODO (optional): If there&rsquo;s a membership form, fee, or sign-up step, describe it
+      here so newcomers know exactly how to get started.
+    </p>
+  </section>
+
+  {# ---------------- WHERE WE SAIL ---------------- #}
+  <section class="section" id="where-we-sail">
+    <h2>Where we sail</h2>
+    <p>
+      Our Monday Night Series and weekly BBQ are based at Dale&rsquo;s Marina in Buffalo, N.Y.
+    </p>
+    <p class="todo-note">
+      TODO (optional): Add the launch location&rsquo;s full address, directions, or a map link,
+      plus any notes on parking or where to rig boats.
+    </p>
+  </section>
+
+</div>

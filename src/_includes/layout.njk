@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+      {% if title %}{{ title }} &middot; {{ site.shortName }}{% else %}{{ site.name }}{% endif %}
+    </title>
+
+    <meta
+      name="description"
+      content="{% if description %}{{ description }}{% else %}{{ site.tagline }}{% endif %}"
+    />
+
+    <link rel="stylesheet" href="/assets/css/site.css" />
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="/">
+          {# Placeholder text logo. Swap for a real logo image later — see BOARD_GUIDE.md #}
+          <span class="brand__mark">BLCA</span>
+          <span class="brand__name">{{ site.shortName }}</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+
+        {#
+          PRIMARY NAVIGATION
+          Phase 1 = Home / About / Results only.
+          To add a Phase 2 page later, copy one <li> line below and change the
+          href and label. That is the only change needed here.
+        #}
+        <nav class="site-nav" id="primary-nav" aria-label="Primary">
+          <ul class="site-nav__list">
+            <li><a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a></li>
+            <li><a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a></li>
+            <li><a href="/results/"{% if page.url == "/results/" %} aria-current="page"{% endif %}>Results</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p class="site-footer__name">{{ site.name }}</p>
+        <p class="site-footer__contact">
+          {# Spam-resistant email: assembled by JS so scrapers don't grab the raw address. Falls back to a mailto link if JS is off. #}
+          <span
+            class="js-email"
+            data-user="{{ site.contactEmail | replace('@', '||') | replace('.', '__') }}"
+          >
+            <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
+          </span>
+        </p>
+
+        {% if site.social.facebook or site.social.instagram or site.social.youtube %}
+        <p class="site-footer__social">
+          {% if site.social.facebook %}<a href="{{ site.social.facebook }}">Facebook</a>{% endif %}
+          {% if site.social.instagram %}<a href="{{ site.social.instagram }}">Instagram</a>{% endif %}
+          {% if site.social.youtube %}<a href="{{ site.social.youtube }}">YouTube</a>{% endif %}
+        </p>
+        {% endif %}
+
+        <p class="site-footer__legal">
+          &copy; {{ "now" | year }} {{ site.name }}. Sail fast.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/js/nav.js" defer></script>
+  </body>
+</html>

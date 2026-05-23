@@ -1,0 +1,25 @@
+{
+  "_comment": "This is the club's board roster. To update it, edit the list below. Each board member needs a name and a role. Keep the square brackets and commas as they are — add or remove whole { ... } blocks. The website's About page reads this file automatically. NOTE: per the board's privacy decision, we list Name and Role only here (no personal emails) since this file is public. A single club contact email lives in site.json instead.",
+  "members": [
+    {
+      "name": "TODO: Board Member Name",
+      "role": "Commodore / President"
+    },
+    {
+      "name": "TODO: Board Member Name",
+      "role": "Vice Commodore"
+    },
+    {
+      "name": "TODO: Board Member Name",
+      "role": "Fleet Captain"
+    },
+    {
+      "name": "TODO: Board Member Name",
+      "role": "Treasurer"
+    },
+    {
+      "name": "TODO: Board Member Name",
+      "role": "Secretary"
+    }
+  ]
+}

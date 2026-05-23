@@ -1,0 +1,34 @@
+---
+layout: layout.njk
+title: Results
+description: Live race results for the Buffalo Laser Class Association, updated from our results spreadsheet.
+---
+
+<section class="page-head">
+  <div class="container container--narrow">
+    <h1>Race Results</h1>
+    <p class="page-head__lead">
+      Weekly race results for the Monday Night Series and other BLCA events. Use the filter
+      to view a specific week, and click any column heading to sort.
+    </p>
+  </div>
+</section>
+
+<div class="container">
+  {#
+    The table is built in the browser from the published Google Sheet CSV.
+    The CSV URL comes from src/_data/site.json (site.resultsCsvUrl) and is
+    handed to the script below via a data- attribute, so a board member never
+    has to touch JavaScript — they just paste a new URL in site.json.
+  #}
+  <div
+    id="results-table"
+    class="results"
+    data-csv-url="{{ site.resultsCsvUrl }}"
+    data-filter-column="Week"
+  >
+    <p class="results__loading">Loading results&hellip;</p>
+  </div>
+</div>
+
+<script src="/assets/js/results-table.js" defer></script>

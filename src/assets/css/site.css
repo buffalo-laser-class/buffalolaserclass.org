@@ -1,0 +1,525 @@
+/* ==========================================================================
+   Buffalo Laser Class Association — site styles
+   Clean, nautical, navy-and-white. Mobile-first. Easily extensible:
+   to add a Phase 2 page, you mostly just reuse .section / .container / .btn.
+   ========================================================================== */
+
+/* ---- Design tokens ---- */
+:root {
+  --navy: #0b2545;       /* deep hull navy */
+  --navy-700: #13315c;   /* lighter navy for hovers */
+  --navy-900: #061a33;   /* near-black navy */
+  --sky: #2e6fa5;        /* accent — lake blue */
+  --sky-light: #e8f0f7;  /* pale wash for section backgrounds */
+  --sand: #f7f5ef;       /* warm off-white page bg */
+  --white: #ffffff;
+  --ink: #1c2733;        /* body text */
+  --ink-soft: #5a6675;   /* muted text */
+  --line: #d9dee6;       /* hairline borders */
+  --gold: #c9a227;       /* subtle nautical brass accent */
+
+  --maxw: 1080px;
+  --maxw-narrow: 720px;
+  --radius: 6px;
+  --shadow: 0 2px 8px rgba(11, 37, 69, 0.08);
+  --shadow-lg: 0 10px 30px rgba(11, 37, 69, 0.15);
+
+  --font-display: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  --font-body: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---- Reset-ish ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--sand);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--navy);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  margin: 0 0 0.4em;
+}
+h2 {
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  margin: 0 0 0.5em;
+}
+h3 {
+  font-size: 1.2rem;
+  margin: 1.4em 0 0.3em;
+  color: var(--navy-700);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--sky);
+}
+a:hover {
+  color: var(--navy);
+}
+
+code {
+  background: var(--sky-light);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* ---- Layout helpers ---- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.container--narrow {
+  max-width: var(--maxw-narrow);
+}
+
+.section {
+  padding: 2.5rem 0;
+}
+.text-center {
+  text-align: center;
+}
+
+/* Accessibility: skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ==========================================================================
+   Header / nav
+   ========================================================================== */
+.site-header {
+  background: var(--navy);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: var(--shadow);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #fff;
+}
+.brand__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.site-nav__list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+.site-nav a {
+  color: #dce6f2;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: #fff;
+  border-bottom-color: var(--gold);
+}
+
+/* Hamburger toggle — hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.nav-toggle__bar {
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  transition: 0.2s;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 62vh;
+  text-align: center;
+  color: #fff;
+  /* Placeholder hero background. Swap /assets/img/hero.jpg for your real photo.
+     The gradient is a fallback shown until a photo is in place. */
+  background-image: linear-gradient(135deg, var(--navy-900), var(--sky)),
+    url("/assets/img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 26, 51, 0.45),
+    rgba(6, 26, 51, 0.65)
+  );
+}
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 1.25rem;
+}
+.hero__title {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  margin-bottom: 0.2em;
+}
+.hero__tagline {
+  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+  color: #eaf1f8;
+  max-width: 36ch;
+  margin: 0 auto 1.8rem;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+.hero__actions {
+  display: flex;
+  gap: 0.9rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.08s, background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn--primary {
+  background: var(--gold);
+  color: var(--navy-900);
+  border-color: var(--gold);
+}
+.btn--primary:hover {
+  background: #d8b43a;
+  color: var(--navy-900);
+}
+.btn--secondary {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: #fff;
+}
+/* On light section backgrounds, the primary button keeps working;
+   provide a navy variant for use on white if needed later. */
+.section .btn--primary {
+  color: var(--navy-900);
+}
+
+/* ==========================================================================
+   Page head (About / Results banner area)
+   ========================================================================== */
+.page-head {
+  background: var(--sky-light);
+  border-bottom: 1px solid var(--line);
+  padding: 2.5rem 0;
+}
+.page-head__lead {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+/* ==========================================================================
+   About page
+   ========================================================================== */
+.about .section {
+  border-bottom: 1px solid var(--line);
+}
+.about .section:last-child {
+  border-bottom: 0;
+}
+.goals {
+  margin: 0 0 1em;
+  padding-left: 1.25rem;
+}
+.goals li {
+  margin-bottom: 0.3em;
+}
+
+.todo-note {
+  background: #fff8e1;
+  border-left: 4px solid var(--gold);
+  padding: 0.7rem 1rem;
+  color: #6b5a16;
+  font-size: 0.92rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* Board table */
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #fff;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.board-table th,
+.board-table td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.board-table thead th {
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.board-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.board-table tbody tr:nth-child(even) {
+  background: var(--sky-light);
+}
+
+/* ==========================================================================
+   Results page
+   ========================================================================== */
+.results {
+  margin: 2rem 0 3rem;
+}
+.results__loading,
+.results__empty,
+.results__error {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--ink-soft);
+}
+.results__error {
+  color: #8a2b2b;
+  background: #fdeaea;
+  border-radius: var(--radius);
+}
+
+.results__controls {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.results__filter-label {
+  font-weight: 600;
+  color: var(--navy);
+}
+.results__filter {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background: #fff;
+  color: var(--ink);
+}
+
+.results__scroll {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.results__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  min-width: 480px;
+}
+.results__table th,
+.results__table td {
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.results__table thead th {
+  background: var(--navy);
+  padding: 0;
+}
+.results__sort {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+}
+.results__sort:hover {
+  background: var(--navy-700);
+}
+.results__table tbody tr:nth-child(even) {
+  background: var(--sky-light);
+}
+.results__table tbody tr:hover {
+  background: #dce8f3;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  background: var(--navy-900);
+  color: #c2cfdd;
+  margin-top: 3rem;
+  padding: 2rem 0;
+}
+.site-footer a {
+  color: #9fc1e0;
+}
+.site-footer a:hover {
+  color: #fff;
+}
+.site-footer__name {
+  font-family: var(--font-display);
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+.site-footer__social {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+.site-footer__legal {
+  font-size: 0.85rem;
+  color: #7e90a4;
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Responsive — mobile nav
+   ========================================================================== */
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: flex;
+  }
+  .site-nav {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .site-nav.is-open {
+    max-height: 320px;
+    border-top: 1px solid var(--navy-700);
+  }
+  .site-nav__list {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1.25rem 1rem;
+  }
+  .site-nav__list li {
+    border-bottom: 1px solid var(--navy-700);
+  }
+  .site-nav a {
+    display: block;
+    padding: 0.85rem 0;
+    border-bottom: none;
+  }
+  .site-nav a[aria-current="page"] {
+    border-bottom: none;
+    color: var(--gold);
+  }
+}
