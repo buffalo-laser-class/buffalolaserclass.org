@@ -389,8 +389,13 @@ code {
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
+}
+.results__control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .results__filter-label {
   font-weight: 600;

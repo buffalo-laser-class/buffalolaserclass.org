@@ -7,8 +7,8 @@
   "_comment_email": "This single address is the club's public contact email, shown in the footer and on the About page. Change it to your real club email.",
   "contactEmail": "TODO-club-email@example.com",
 
-  "_comment_results": "PASTE THE PUBLISHED-TO-WEB CSV URL OF THE RESULTS GOOGLE SHEET HERE. We will create this sheet together in a later step. Until it is filled in, the Results page will show a friendly 'results coming soon' message instead of an error.",
-  "resultsCsvUrl": "",
+  "_comment_results": "Each season has a label (shown in the page's dropdown) and a published-to-web CSV url from the results spreadsheet's 'Website' tab. NEWEST SEASON GOES FIRST (it becomes the default shown). An empty list shows a friendly 'results coming soon' message. See WEBSITE_MANAGER_GUIDE.md for how to add a season.",
+  "resultsSeasons": [],
 
   "_comment_social": "Optional social links shown in the footer. Leave a value empty (\"\") to hide that link. We are NOT adding any social accounts in Phase 1 — these are here so a future board member can switch one on by pasting a URL.",
   "social": {

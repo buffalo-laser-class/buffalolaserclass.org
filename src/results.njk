@@ -24,8 +24,10 @@ description: Live race results for the Buffalo Laser Class Association, updated 
   <div
     id="results-table"
     class="results"
-    data-csv-url="{{ site.resultsCsvUrl }}"
-    data-filter-column="Week"
+    data-seasons='{{ site.resultsSeasons | dump | safe }}'
+    data-filter-column="Date"
+    data-default-sort="Date"
+    data-default-dir="desc"
   >
     <p class="results__loading">Loading results&hellip;</p>
   </div>
