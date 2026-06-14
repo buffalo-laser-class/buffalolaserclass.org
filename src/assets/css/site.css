@@ -148,6 +148,15 @@ code {
   text-decoration: none;
   color: #fff;
 }
+.brand:hover {
+  color: #fff;
+}
+.brand:hover .brand__name {
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
 .brand__logo {
   display: block;
   height: 40px;
