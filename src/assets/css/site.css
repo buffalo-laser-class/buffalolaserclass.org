@@ -16,7 +16,9 @@
   --ink: #1c2733;        /* body text */
   --ink-soft: #5a6675;   /* muted text */
   --line: #d9dee6;       /* hairline borders */
-  --gold: #c9a227;       /* subtle nautical brass accent */
+  --gold: #c9a227;       /* subtle nautical brass accent (notes) */
+  --orange: #f05624;     /* BLCA brand orange (from the logo) */
+  --orange-dark: #d8481a;/* hover state for orange */
 
   --maxw: 1080px;
   --maxw-narrow: 720px;
@@ -146,18 +148,10 @@ code {
   text-decoration: none;
   color: #fff;
 }
-.brand__mark {
-  display: inline-grid;
-  place-items: center;
-  width: 40px;
+.brand__logo {
+  display: block;
   height: 40px;
-  border: 2px solid var(--gold);
-  border-radius: 50%;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  color: #fff;
+  width: auto;
 }
 .brand__name {
   font-family: var(--font-display);
@@ -183,7 +177,7 @@ code {
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
   color: #fff;
-  border-bottom-color: var(--gold);
+  border-bottom-color: var(--orange);
 }
 
 /* Hamburger toggle — hidden on desktop */
@@ -213,27 +207,44 @@ code {
   min-height: 62vh;
   text-align: center;
   color: #fff;
-  /* Placeholder hero background. Swap /assets/img/hero.jpg for your real photo.
-     The gradient is a fallback shown until a photo is in place. */
-  background-image: linear-gradient(135deg, var(--navy-900), var(--sky)),
-    url("/assets/img/hero.jpg");
+  /* Real hero photo: Buffalo skyline at dusk with the Monday-night fleet.
+     To swap it, replace /assets/img/hero.jpg (keep the name) — see BOARD_GUIDE.md. */
+  background-image: url("/assets/img/hero.jpg");
   background-size: cover;
-  background-position: center;
-  background-blend-mode: multiply;
+  background-position: center 60%;
 }
 .hero__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(6, 26, 51, 0.45),
-    rgba(6, 26, 51, 0.65)
+    rgba(6, 26, 51, 0.30),
+    rgba(6, 26, 51, 0.62)
   );
 }
 .hero__content {
   position: relative;
   z-index: 1;
   padding: 3rem 1.25rem;
+}
+.hero__logo {
+  display: block;
+  width: min(360px, 70vw);
+  height: auto;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.35));
+}
+/* The logo carries the club name visually; keep an h1 for screen readers/SEO. */
+.hero__title--sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 .hero__title {
   color: #fff;
@@ -271,13 +282,13 @@ code {
   transform: translateY(1px);
 }
 .btn--primary {
-  background: var(--gold);
-  color: var(--navy-900);
-  border-color: var(--gold);
+  background: var(--orange);
+  color: #fff;
+  border-color: var(--orange);
 }
 .btn--primary:hover {
-  background: #d8b43a;
-  color: var(--navy-900);
+  background: var(--orange-dark);
+  color: #fff;
 }
 .btn--secondary {
   background: transparent;
@@ -525,6 +536,6 @@ code {
   }
   .site-nav a[aria-current="page"] {
     border-bottom: none;
-    color: var(--gold);
+    color: var(--orange);
   }
 }

@@ -14,7 +14,9 @@
     />
 
     <link rel="stylesheet" href="/assets/css/site.css" />
-    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/img/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
   </head>
 
   <body>
@@ -22,9 +24,14 @@
 
     <header class="site-header">
       <div class="container site-header__inner">
-        <a class="brand" href="/">
-          {# Placeholder text logo. Swap for a real logo image later — see BOARD_GUIDE.md #}
-          <span class="brand__mark">BLCA</span>
+        <a class="brand" href="/" aria-label="{{ site.name }} — home">
+          <img
+            class="brand__logo"
+            src="/assets/img/logo-emblem.png"
+            alt="{{ site.name }} logo"
+            width="44"
+            height="29"
+          />
           <span class="brand__name">{{ site.shortName }}</span>
         </a>
 

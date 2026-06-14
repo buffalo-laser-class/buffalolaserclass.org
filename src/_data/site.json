@@ -5,7 +5,7 @@
   "url": "https://buffalolaserclass.org",
 
   "_comment_email": "This single address is the club's public contact email, shown in the footer and on the About page. Change it to your real club email.",
-  "contactEmail": "TODO-club-email@example.com",
+  "contactEmail": "buffalolaserclass@gmail.com",
 
   "_comment_results": "Each season has a label (shown in the page's dropdown) and a published-to-web CSV url from the results spreadsheet's 'Website' tab. NEWEST SEASON GOES FIRST (it becomes the default shown). An empty list shows a friendly 'results coming soon' message. See WEBSITE_MANAGER_GUIDE.md for how to add a season.",
   "resultsSeasons": [],
