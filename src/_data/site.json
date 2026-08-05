@@ -8,7 +8,12 @@
   "contactEmail": "buffalolaserclass@gmail.com",
 
   "_comment_results": "Each season has a label (shown in the page's dropdown) and a published-to-web CSV url from the results spreadsheet's 'Website' tab. NEWEST SEASON GOES FIRST (it becomes the default shown). An empty list shows a friendly 'results coming soon' message. See WEBSITE_MANAGER_GUIDE.md for how to add a season.",
-  "resultsSeasons": [],
+  "resultsSeasons": [
+  {
+    "label": "2026 — Race Nights",
+    "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8GNuCWQlZTL10nAUvpwN0i9Bkxr3IjiyfGgQtXeOQ-K3NNNPiaxW22IqLc4QAGMyQ0z20Aqs5n4O5/pub?gid=402777965&single=true&output=csv"
+  }
+],
 
   "_comment_social": "Optional social links shown in the footer. Leave a value empty (\"\") to hide that link. We are NOT adding any social accounts in Phase 1 — these are here so a future board member can switch one on by pasting a URL.",
   "social": {
