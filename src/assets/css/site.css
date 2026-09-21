@@ -548,3 +548,19 @@ code {
     color: var(--orange);
   }
 }
+
+/* Regatta page: per-fleet results tables */
+.regatta-results__fleet {
+  margin: 1.5rem 0 0.6rem;
+}
+.regatta-results .results__table thead th {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.7rem 0.9rem;
+}
+.regatta-results__drop {
+  color: var(--muted, #6b7785);
+}
