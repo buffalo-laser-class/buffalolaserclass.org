@@ -11,15 +11,44 @@ description: The Silo City Regatta — Sunday, September 20, 2026 at Buffalo Can
       Hosted by the Buffalo Laser Class Association.
       Join us for a day of ILCA/Laser racing on Lake Erie.
     </p>
-    <p class="hero__actions">
-      <a class="btn btn--primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdR1si0Yad_b7o6bmFMNOGZ1p-LBROV95LOoQeNkO5PY6S3nA/viewform" target="_blank" rel="noopener">
-        Click here to register
-      </a>
-    </p>
   </div>
 </section>
 
 <div class="container container--narrow">
+
+  {# ---------------- RESULTS ----------------
+     Scores live in src/_data/siloCityResults.json (copied from the scoring sheet).
+     Discarded (dropped) race is shown in parentheses. #}
+  <section class="section" id="results">
+    <h2>Results</h2>
+    <p>Final results, {{ siloCityResults.races }} races sailed, one discard.</p>
+    {% for fleet in siloCityResults.fleets %}
+    <h3 class="regatta-results__fleet">{{ fleet.name }}</h3>
+    <div class="results__scroll regatta-results">
+      <table class="results__table">
+        <thead>
+          <tr>
+            <th scope="col">Pl</th><th scope="col">Name</th><th scope="col">Sail #</th>
+            {% for i in range(1, siloCityResults.races + 1) %}<th scope="col">R{{ i }}</th>{% endfor %}
+            <th scope="col">Net</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in fleet.sailors %}
+          <tr>
+            <td>{{ s.place }}</td><td>{{ s.name }}</td><td>{{ s.sail }}</td>
+            {% set dropped = false %}
+            {% for r in s.races %}
+              {% if r == s.drop and not dropped %}{% set dropped = true %}<td class="regatta-results__drop">({{ r }})</td>{% else %}<td>{{ r }}</td>{% endif %}
+            {% endfor %}
+            <td><strong>{{ s.net }}</strong></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  </section>
 
   {# ---------------- EVENT DETAILS ---------------- #}
   <section class="section" id="details">
